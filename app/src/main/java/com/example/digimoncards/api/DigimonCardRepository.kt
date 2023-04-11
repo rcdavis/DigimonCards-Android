@@ -1,13 +1,9 @@
 package com.example.digimoncards.api
 
-import com.example.digimoncards.api.dto.DigimonCardDto
-import com.example.digimoncards.api.util.RetrofitUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.http.Query
 
-class DigimonCardRepository {
-    private val digimonCardApi = RetrofitUtils.createDigimonCardApi()
+class DigimonCardRepository(private val digimonCardApi: DigimonCardApi) {
 
     private val cardDB = mutableMapOf<String, DigimonCard>()
 
