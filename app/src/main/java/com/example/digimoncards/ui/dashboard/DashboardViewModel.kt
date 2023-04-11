@@ -9,12 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class DashboardViewModel : ViewModel() {
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
-    }
-
-    val text: LiveData<String> = _text
-
     private val digimonCardApi = RetrofitUtils.createDigimonCardApi()
 
     suspend fun getAgumonCards(): List<DigimonCard> {

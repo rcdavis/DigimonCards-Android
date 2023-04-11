@@ -23,15 +23,17 @@ class DashboardFragment : Fragment() {
     ): View {
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
-        viewModel.text.observe(viewLifecycleOwner) {
-            binding.textDashboard.text = it
+        binding.buttonSearch.setOnClickListener {
+            printAgumonCards()
         }
 
+        return binding.root
+    }
+
+    private fun printAgumonCards() {
         lifecycleScope.launch {
             val cards = viewModel.getAgumonCards()
             Log.d("DigimonAgumon", cards.toString())
         }
-
-        return binding.root
     }
 }
