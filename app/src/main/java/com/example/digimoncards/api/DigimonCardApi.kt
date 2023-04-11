@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface DigimonCardApi {
     @GET("search.php")
-    fun getCards(
+    suspend fun getCards(
         @Query("n") name: String? = null,
         @Query("desc") description: String? = null,
         @Query("color") color: String? = null,
@@ -18,12 +18,12 @@ interface DigimonCardApi {
         @Query("sort") sort: String? = null,
         @Query("sortdirection") sortDirection: String? = null,
         @Query("series") seriesName: String? = null
-    ): Call<List<DigimonCardDto>>
+    ): List<DigimonCardDto>
 
     @GET("getAllCards.php")
-    fun getAllCards(
+    suspend fun getAllCards(
         @Query("sort") sort: String? = null,
         @Query("series") seriesName: String? = null,
         @Query("sortdirection") sortDirection: String? = null
-    ): Call<List<DigimonCardDto>>
+    ): List<DigimonCardDto>
 }

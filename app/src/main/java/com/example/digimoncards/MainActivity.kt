@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_notifications
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
     }
