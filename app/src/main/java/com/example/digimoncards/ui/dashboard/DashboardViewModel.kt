@@ -1,7 +1,5 @@
 package com.example.digimoncards.ui.dashboard
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.digimoncards.api.DigimonCard
 import com.example.digimoncards.api.util.RetrofitUtils
