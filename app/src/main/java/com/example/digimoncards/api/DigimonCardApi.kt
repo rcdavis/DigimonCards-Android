@@ -1,7 +1,6 @@
 package com.example.digimoncards.api
 
 import com.example.digimoncards.api.dto.DigimonCardDto
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
