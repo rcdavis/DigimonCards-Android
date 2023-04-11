@@ -1,7 +1,6 @@
 package com.example.digimoncards.ui.dashboard
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,21 +24,21 @@ class DashboardFragment : Fragment() {
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         binding.buttonSearch.setOnClickListener {
-            printAgumonCards()
+            printAgumonCard()
         }
 
         return binding.root
     }
 
-    private fun printAgumonCards() {
+    private fun printAgumonCard() {
         lifecycleScope.launch {
-            val cards = try {
-                viewModel.getAgumonCards()
+            try {
+                viewModel.getAgumonCard()?.let {
+                    updateUI(it)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
-                emptyList()
             }
-            updateUI(cards.first())
         }
     }
 
@@ -49,6 +48,5 @@ class DashboardFragment : Fragment() {
         binding.textCardType.text = card.type.text
         binding.textCardColor.text = card.color.text
         binding.textCardStage.text = card.stage
-        Log.d("DigimonAgumon", card.toString())
     }
 }
